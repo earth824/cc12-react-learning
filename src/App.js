@@ -1,24 +1,23 @@
-import logo from './logo.svg';
-import './App.css';
+import { useState } from 'react';
 
 function App() {
+  const [isLogged, setIsLogged] = useState(false);
+  // if isLogged is true: render Welcome back, Else: render Go to Login Page
+  // 1. Store jsx in a variable
+  // const message = isLogged ? <h1>Welcome back</h1> : <h1>Go to Login Page</h1>;
+  // return <div>{message}</div>;
+
+  // 2. && Operator ( null && <h1>Test</h1> ===> null) (true && <h1>Test</h1> ===> <h1>Test</h1>)
+  // return (
+  //   <div>
+  //     {isLogged && <h1>Welcome back</h1>}
+  //     {!isLogged && <h1>Go to Login Page</h1>}
+  //   </div>
+  // );
+
+  // 3. Ternary operator
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <div>{isLogged ? <h1>Welcome back</h1> : <h1>Go to Login Page</h1>}</div>
   );
 }
 
