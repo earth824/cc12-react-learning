@@ -1,24 +1,25 @@
-import logo from './logo.svg';
-import './App.css';
+import { Routes, Route } from 'react-router-dom';
+import AboutPage from './pages/AboutPage';
+import ContactPage from './pages/ContactPage';
+import HomePage from './pages/HomePage';
+import LoginPage from './pages/LoginPage';
+import ProductPage from './pages/ProductPage';
+import Layout from './components/Layout';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/aaa" element={<Layout />}>
+        {/* /aaa/ <Outlet /> คือ <HomePage /> */}
+        <Route path="" element={<HomePage />} />
+        {/* /aaa/login <Outlet /> คือ <LoginPage />*/}
+        <Route path="login" element={<LoginPage />} />
+        <Route path="about" element={<AboutPage />} />
+        <Route path="contact" element={<ContactPage />} />
+        <Route path="product/:productId" element={<ProductPage />} />
+      </Route>
+      <Route path="*" element={<h1>404! This page is not found!!!</h1>} />
+    </Routes>
   );
 }
 
